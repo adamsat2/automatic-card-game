@@ -1,24 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_3" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="card_game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="874" height="402"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGz-6n-bay">
+                                <rect key="frame" x="399" y="82" width="76" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nh-k6-458">
+                                <rect key="frame" x="390.66666666666669" y="347" width="93" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Continue"/>
+                                <connections>
+                                    <segue destination="6MQ-Nn-dGv" kind="presentation" identifier="goToGame" modalPresentationStyle="fullScreen" id="W0g-me-CqV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMH-mU-Pm5">
+                                <rect key="frame" x="380.33333333333331" y="183.66666666666666" width="113.33333333333331" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Enter Name"/>
+                                <connections>
+                                    <action selector="name_insert_btn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sHK-9j-HAr"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Nh-k6-458" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2O0-Mx-VR9"/>
+                            <constraint firstItem="aGz-6n-bay" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6bA-9a-1WH"/>
+                            <constraint firstItem="RMH-mU-Pm5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9be-jS-xPR"/>
+                            <constraint firstAttribute="bottom" secondItem="6Nh-k6-458" secondAttribute="bottom" constant="20" id="HyJ-S1-hdD"/>
+                            <constraint firstItem="aGz-6n-bay" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Kse-6y-kzN"/>
+                            <constraint firstItem="RMH-mU-Pm5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iCR-3f-9CS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="continue_btn" destination="6Nh-k6-458" id="IqW-6q-5d4"/>
+                        <outlet property="name_insert_btn" destination="RMH-mU-Pm5" id="tTM-FN-2qd"/>
+                        <outlet property="name_lbl" destination="aGz-6n-bay" id="g7H-t2-MwO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-48" y="99"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="VEb-fT-JWr">
+            <objects>
+                <viewController id="6MQ-Nn-dGv" customClass="GameViewController" customModule="card_game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k8S-ea-E6Y">
+                        <rect key="frame" x="0.0" y="0.0" width="874" height="402"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imM-yr-C1W">
+                                <rect key="frame" x="55" y="67" width="52" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yxW-Sv-csQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="imM-yr-C1W" firstAttribute="leading" secondItem="yxW-Sv-csQ" secondAttribute="leading" constant="55" id="XDa-F4-Jgq"/>
+                            <constraint firstItem="imM-yr-C1W" firstAttribute="top" secondItem="yxW-Sv-csQ" secondAttribute="top" constant="5" id="hOL-nf-ZMU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Jo6-0z-007"/>
+                    <connections>
+                        <outlet property="name_lbl" destination="imM-yr-C1W" id="pfR-ym-WQQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wQN-tz-p3o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1202" y="99"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

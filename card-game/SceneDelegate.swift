@@ -2,8 +2,6 @@
 //  SceneDelegate.swift
 //  card-game
 //
-//  Created by Adam Stern on 21/05/2026.
-//
 
 import UIKit
 
