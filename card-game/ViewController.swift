@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     
     var name: String = ""
     
-    
     @IBAction func name_insert_btn(_ sender: Any) {
+        
         let alertController = UIAlertController(title: "Welcome", message: "Enter your name", preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
@@ -53,8 +53,17 @@ class ViewController: UIViewController {
         name_insert_btn.titleLabel?.numberOfLines = 1
         name_insert_btn.titleLabel?.adjustsFontSizeToFitWidth = true
         name_insert_btn.titleLabel?.minimumScaleFactor = 0.5
+        
+        if !name.isEmpty {
+            name_lbl.text = "Hello \(name)"
+            continue_btn.isEnabled = true
+        }
     }
 
+    // Returns the last screen to the home menu by clearing prev screens from the stack until we reach the first screen with unwindToStart
+    // Used in order to avoid infinite stacks and being able to retain the name set previously
+    @IBAction func unwindToStart(_ segue: UIStoryboardSegue) {
+    }
 
 }
 

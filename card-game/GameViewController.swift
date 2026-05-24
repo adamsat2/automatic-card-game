@@ -10,6 +10,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var name_lbl: UILabel!
     @IBOutlet weak var round_lbl: UILabel!
     @IBOutlet weak var com_lbl: UILabel!
+    @IBOutlet weak var continue_btn: UIButton!
     
     var name: String = ""
     var currentRound: Int = 1
@@ -50,9 +51,18 @@ class GameViewController: UIViewController {
                 self.isGameOver = true
                 self.gameTimer?.invalidate()
                 self.gameTimer = nil
+                self.continue_btn.isEnabled = true
                 print("Game Over")
             }
             
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ScoreViewController {
+            destination.name = self.name
+            destination.plyScore = self.plyScore
+            destination.comScore = self.comScore
         }
     }
     
