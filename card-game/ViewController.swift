@@ -27,7 +27,7 @@ class ViewController: UIViewController {
             guard let inputName = alertController.textFields?.first?.text,
             !inputName.isEmpty else { return }
             
-            self.name = inputName
+            self.name = inputName.capitalized
             self.name_lbl.text = "Hello \(self.name)"
             self.continue_btn.isEnabled = true
 
