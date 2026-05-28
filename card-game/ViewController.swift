@@ -4,14 +4,23 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var name_lbl: UILabel!
     @IBOutlet weak var continue_btn: UIButton!
     @IBOutlet weak var name_insert_btn: UIButton!
+    @IBOutlet weak var west_img: UIImageView!
+    @IBOutlet weak var east_img: UIImageView!
     
     var name: String = ""
+    
+    let locationManager = CLLocationManager()
+    let middleLongitude: Double = 34.817549168324334
+    
+    // nil = unchosen, true = left, false = right
+    var isPlayerOnLeft: Bool?
     
     @IBAction func name_insert_btn(_ sender: Any) {
         
@@ -29,7 +38,7 @@ class ViewController: UIViewController {
             
             self.name = inputName.capitalized
             self.name_lbl.text = "Hello \(self.name)"
-            self.continue_btn.isEnabled = true
+            self.checkEnableContinue()
 
         }
 
@@ -42,6 +51,9 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? GameViewController {
             destination.name = self.name
+            if let isOnLeft = isPlayerOnLeft {
+                destination.isPlayerOnLeft = isOnLeft
+            }
         }
     }
     
@@ -50,13 +62,88 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // Force button label to be one line by decreasing font size as in some iPhones it's too long
-        name_insert_btn.titleLabel?.numberOfLines = 1
-        name_insert_btn.titleLabel?.adjustsFontSizeToFitWidth = true
-        name_insert_btn.titleLabel?.minimumScaleFactor = 0.5
+        let buttonSet: Set<UIButton> = [name_insert_btn, continue_btn]
+        for button in buttonSet {
+            button.titleLabel?.numberOfLines = 1
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+            button.titleLabel?.minimumScaleFactor = 0.5
+        }
         
         if !name.isEmpty {
             name_lbl.text = "Hello \(name)"
             continue_btn.isEnabled = true
+        }
+        
+        // Fade images and unfade the selected one based on user location
+        west_img.alpha = 0.3
+        east_img.alpha = 0.3
+        
+        setupLocation()
+        checkEnableContinue()
+    }
+    
+    func setupLocation() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers // Estimated location not exact
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        
+        locationManager.stopUpdatingLocation()
+        let longitude = location.coordinate.longitude
+        
+        isPlayerOnLeft = longitude < middleLongitude
+        
+        if isPlayerOnLeft == true {
+            west_img.alpha = 1.0
+            east_img.alpha = 0.3
+        } else {
+            west_img.alpha = 0.3
+            east_img.alpha = 1.0
+        }
+        
+        checkEnableContinue()
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        let status = manager.authorizationStatus
+        
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            locationManager.startUpdatingLocation()
+        } else if status == .denied || status == .restricted {
+            showSettingsAlert()
+        }
+    }
+    
+    func showSettingsAlert() {
+        let alert = UIAlertController(
+                    title: "Location Required",
+                    message: "The app needs your location to figure out which side of the table you sit on! Please enable it in your settings to continue.",
+                    preferredStyle: .alert
+                )
+                
+        let settingsAction = UIAlertAction(title: "Go to Settings", style: .default) { _ in
+            // Opens iPhone's settings
+            if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(settingsUrl)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(settingsAction)
+        
+        present(alert, animated: true)
+    }
+    
+    func checkEnableContinue() {
+        if !name.isEmpty && isPlayerOnLeft != nil {
+            continue_btn.isEnabled = true
+        } else {
+            continue_btn.isEnabled = false
         }
     }
 
