@@ -19,7 +19,7 @@ class GameViewController: UIViewController, CallBackTimer {
     
     var name: String = ""
     var currentRound: Int = 1
-    var gameTimer = TimeCounter(interval: 3.0)
+    var gameTimer = TimeCounter(roundInterval: 3.0, flipInterval: 2.0)
     var plyScore: Int = 0
     var comScore: Int = 0
     var isGameOver: Bool = false
@@ -40,16 +40,26 @@ class GameViewController: UIViewController, CallBackTimer {
     }
     
     func updateSideImages(plyCard: String, comCard: String) {
+        
         if isPlayerOnLeft {
-            left_card_img.image = UIImage(named: plyCard)
-            right_card_img.image = UIImage(named: comCard)
+            UIView.transition(with: left_card_img, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+                        self.left_card_img.image = UIImage(named: plyCard)
+                    }, completion: nil)
+            UIView.transition(with: right_card_img, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+                        self.right_card_img.image = UIImage(named: comCard)
+                    }, completion: nil)
         } else {
-            left_card_img.image = UIImage(named: comCard)
-            right_card_img.image = UIImage(named: plyCard)
+            UIView.transition(with: left_card_img, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+                        self.left_card_img.image = UIImage(named: comCard)
+                    }, completion: nil)
+            UIView.transition(with: right_card_img, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+                        self.right_card_img.image = UIImage(named: plyCard)
+                    }, completion: nil)
         }
     }
     
-    func updateRoundResult(status: Int, cardIndex: Int, suitIndex: Int) {
+    // Default for suitIndex just to make calls for tie look nicer
+    func updateRoundResult(status: Int, cardIndex: Int, suitIndex: Int = 0) {
         if status == 0 {
             self.roundres_lbl.text = "Tie! Both drew a \(self.cardsNames[cardIndex])!"
         } else {
@@ -73,7 +83,14 @@ class GameViewController: UIViewController, CallBackTimer {
         gameTimer.start()
     }
     
-    func tickDetected() {
+    func roundStarted() {
+        round_lbl.text = "Round: \(self.currentRound)"
+        roundres_lbl.text = "Drawing cards..."
+        let cardBackName = "card_back"
+        updateSideImages(plyCard: cardBackName, comCard: cardBackName)
+    }
+    
+    func cardsFlipped() {
         let plyIndex = Int.random(in: 0..<self.cardsNames.count)
         let compIndex = Int.random(in: 0..<self.cardsNames.count)
         
@@ -92,14 +109,13 @@ class GameViewController: UIViewController, CallBackTimer {
             self.comScore += 1
             updateRoundResult(status: -1, cardIndex: compIndex, suitIndex: compSuit)
         } else {
-            self.roundres_lbl.text = "Tie! Both drew a \(self.cardsNames[plyIndex])!"
+            updateRoundResult(status: 0, cardIndex: plyIndex)
         }
         
         updateSideNames()
         
         if self.currentRound < self.roundsNumber {
             self.currentRound += 1
-            self.round_lbl.text = "Round: \(self.currentRound)"
         } else {
             self.isGameOver = true
             self.gameTimer.stop()
