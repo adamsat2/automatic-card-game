@@ -11,6 +11,7 @@ class GameViewController: UIViewController, CallBackTimer {
     @IBOutlet weak var round_lbl: UILabel!
     @IBOutlet weak var right_name_lbl: UILabel!
     @IBOutlet weak var roundres_lbl: UILabel!
+    @IBOutlet weak var portraitres_lbl: UILabel! // Same as roundres but for portrait mode
     
     @IBOutlet weak var continue_btn: UIButton!
     
@@ -62,9 +63,11 @@ class GameViewController: UIViewController, CallBackTimer {
     func updateRoundResult(status: Int, cardIndex: Int, suitIndex: Int = 0) {
         if status == 0 {
             self.roundres_lbl.text = "Tie! Both drew a \(self.cardsNames[cardIndex])!"
+            self.portraitres_lbl.text = self.roundres_lbl.text
         } else {
             let winnerName = status == 1 ? self.name : "House"
             self.roundres_lbl.text = "\(winnerName) wins with a \(self.cardsNames[cardIndex]) of \(self.suits[suitIndex])!"
+            self.portraitres_lbl.text = self.roundres_lbl.text
         }
     }
 
@@ -77,6 +80,7 @@ class GameViewController: UIViewController, CallBackTimer {
         updateSideNames()
         round_lbl.text = "Round: \(currentRound)"
         roundres_lbl.text = "Starting game..."
+        portraitres_lbl.text = roundres_lbl.text
     }
     
     func startTimer() {
@@ -86,6 +90,7 @@ class GameViewController: UIViewController, CallBackTimer {
     func roundStarted() {
         round_lbl.text = "Round: \(self.currentRound)"
         roundres_lbl.text = "Drawing cards..."
+        portraitres_lbl.text = roundres_lbl.text
         let cardBackName = "card_back"
         updateSideImages(plyCard: cardBackName, comCard: cardBackName)
     }
