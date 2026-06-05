@@ -18,6 +18,12 @@ class ScoreViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setResultLabel()
+        
+        if name == "The House" {
+            SoundManager.shared.playSound(soundName: "lose")
+        } else {
+            SoundManager.shared.playSound(soundName: "win")
+        }
     }
     
     func setResultLabel() {

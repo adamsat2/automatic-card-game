@@ -32,14 +32,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "Save", style: .default) { _ in
-
-            guard let inputName = alertController.textFields?.first?.text,
-            !inputName.isEmpty else { return }
             
-            self.name = inputName.capitalized
-            self.name_lbl.text = "Hello \(self.name)"
-            self.checkEnableContinue()
-
+            let inputName = alertController.textFields?.first?.text?.trimmingCharacters(in: .whitespaces) ?? ""
+            
+            if inputName.isEmpty {
+                let errorAlert = UIAlertController(title: "Invalid Name", message: "You must have a name!", preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(errorAlert, animated: true, completion: nil)
+            } else if inputName.lowercased() == "the house" {
+                let errorAlert = UIAlertController(title: "Invalid Name", message: "You cannot be named 'The House'!", preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(errorAlert, animated: true, completion: nil)
+            } else {
+                // 4. Success! Save the name
+                self.name = inputName.capitalized
+                self.name_lbl.text = "Hello \(self.name)"
+                self.checkEnableContinue()
+            }
         }
 
         alertController.addAction(cancelAction)

@@ -92,10 +92,14 @@ class GameViewController: UIViewController, CallBackTimer {
         roundres_lbl.text = "Drawing cards..."
         portraitres_lbl.text = roundres_lbl.text
         let cardBackName = "card_back"
+        
+        SoundManager.shared.playSound(soundName: "card_flip")
         updateSideImages(plyCard: cardBackName, comCard: cardBackName)
     }
     
     func cardsFlipped() {
+        SoundManager.shared.playSound(soundName: "card_flip")
+        
         let plyIndex = Int.random(in: 0..<self.cardsNames.count)
         let compIndex = Int.random(in: 0..<self.cardsNames.count)
         
