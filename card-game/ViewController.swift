@@ -89,11 +89,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         setupLocation()
         checkEnableContinue()
+        SoundManager.shared.playBackgroundMusic(soundName: "space-music") // the legendary (royalty free) music from go-asteroids
     }
     
     func setupLocation() {
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers // Estimated location not exact
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers // Estimated location
         locationManager.requestWhenInUseAuthorization()
     }
     

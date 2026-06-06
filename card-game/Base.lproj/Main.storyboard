@@ -23,7 +23,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nh-k6-458">
-                                <rect key="frame" x="444.66666666666663" y="377" width="67" height="38"/>
+                                <rect key="frame" x="444.66666666666669" y="377" width="67" height="38"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Start">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMH-mU-Pm5">
-                                <rect key="frame" x="414.66666666666663" y="133" width="127.00000000000011" height="38"/>
+                                <rect key="frame" x="414.66666666666669" y="133" width="127.00000000000006" height="38"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Enter Name">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
@@ -211,7 +211,7 @@
                                         <variation key="heightClass=regular-widthClass=compact" hidden="NO"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="center" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ChD-9o-FD4">
-                                        <rect key="frame" x="0.0" y="38.666666666666686" width="856" height="249.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="38.666666666666671" width="856" height="249.33333333333331"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ak7-5h-rT5">
                                                 <rect key="frame" x="0.0" y="0.0" width="285.33333333333331" height="249.33333333333334"/>
@@ -241,7 +241,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bde-jI-6NO">
-                                <rect key="frame" x="426.33333333333337" y="380" width="103.33333333333326" height="35"/>
+                                <rect key="frame" x="426.33333333333331" y="380" width="103.33333333333331" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="gcN-Cp-NyX"/>
                                 </constraints>

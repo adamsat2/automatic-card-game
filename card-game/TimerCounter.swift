@@ -38,12 +38,20 @@ class TimeCounter {
     
     private func triggerRound() {
         delegate?.roundStarted()
+        
+        // Prevents the game from continuing if stop() was used during the delegate
+        guard hasStarted else { return }
+        
         isWaitingToFlip = true // Next thing to do is flip card
         scheduleTimer(interval: flipInterval)
     }
     
     private func triggerFlip() {
         delegate?.cardsFlipped()
+        
+        // Prevents the game from continuing if stop() was used during the delegate
+        guard hasStarted else { return }
+        
         isWaitingToFlip = false // Next thing to do is start next round
         scheduleTimer(interval: roundInterval)
     }
