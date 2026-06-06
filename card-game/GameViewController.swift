@@ -81,6 +81,19 @@ class GameViewController: UIViewController, CallBackTimer {
         round_lbl.text = "Round: \(currentRound)"
         roundres_lbl.text = "Starting game..."
         portraitres_lbl.text = roundres_lbl.text
+        
+        // Observer to detect if the user leaves the app
+        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            if self?.isGameOver == false {
+                self?.gameTimer.pause()
+            }
+        }
+        // Observer for the return of the user
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            if self?.isGameOver == false {
+                self?.gameTimer.resume()
+            }
+        }
     }
     
     func startTimer() {
@@ -133,6 +146,11 @@ class GameViewController: UIViewController, CallBackTimer {
         }
     }
     
+    // Remove observers when done to prevent memory leaks
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ScoreViewController {
             if plyScore > comScore {
@@ -145,17 +163,17 @@ class GameViewController: UIViewController, CallBackTimer {
         }
     }
     
-    // stop the timer when leaving the app
+    // stop the timer when moving to the next view
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         gameTimer.stop()
     }
     
-    // continue the timer when returning to the app if game isn't over
+    // start or resume the timer when this screen appears
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if !isGameOver {
-            startTimer()
+            gameTimer.resume()
         }
     }
     
