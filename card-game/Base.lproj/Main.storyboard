@@ -23,7 +23,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nh-k6-458">
-                                <rect key="frame" x="186.66666666666669" y="893" width="66.999999999999972" height="38"/>
+                                <rect key="frame" x="186.66666666666666" y="893" width="67" height="38"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Start">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMH-mU-Pm5">
-                                <rect key="frame" x="156.66666666666669" y="215" width="126.99999999999994" height="38"/>
+                                <rect key="frame" x="156.66666666666666" y="215" width="126.99999999999997" height="38"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Enter Name">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
@@ -55,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="East Side" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifB-bb-feO">
-                                <rect key="frame" x="307.33333333333331" y="655.33333333333337" width="71.666666666666686" height="20"/>
+                                <rect key="frame" x="307.33333333333331" y="655.33333333333337" width="71.333333333333314" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -191,7 +191,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bTh-ib-DbL">
-                                                <rect key="frame" x="233.33333333333326" y="0.0" width="106.66666666666669" height="80.333333333333329"/>
+                                                <rect key="frame" x="233.33333333333329" y="0.0" width="106.66666666666666" height="80.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -199,7 +199,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtF-D6-zRR">
-                                        <rect key="frame" x="0.0" y="90.333333333333343" width="340" height="161.00000000000003"/>
+                                        <rect key="frame" x="0.0" y="90.333333333333343" width="340" height="161"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PortraitRes lbl" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cf-IC-4DF">
                                                 <rect key="frame" x="0.0" y="0.0" width="340" height="161"/>
@@ -241,7 +241,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bde-jI-6NO">
-                                <rect key="frame" x="168.33333333333331" y="896" width="103.33333333333337" height="35"/>
+                                <rect key="frame" x="168.33333333333334" y="896" width="103.33333333333334" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="gcN-Cp-NyX"/>
                                 </constraints>

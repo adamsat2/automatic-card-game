@@ -145,6 +145,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W7Z5X5Z7JR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "card-game/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"The app needs your location to determine which side of the table you sit on\"";
@@ -178,6 +179,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W7Z5X5Z7JR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "card-game/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"The app needs your location to determine which side of the table you sit on\"";
