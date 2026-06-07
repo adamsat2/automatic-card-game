@@ -15,7 +15,7 @@ An interactive, feature-rich iOS card game built with Swift and UIKit. The prima
 - **iOS** 18.0+ 
 
 ### Installation
-1. Clone this repository: `git clone https://github.com/adamsat2/ios-card-game.git`
+1. Clone this repository: `git clone https://github.com/adamsat2/automatic-card-game.git`
 2. Open the project in Xcode: `open card-game.xcodeproj`
 3. Select an iOS Simulator or connected iPhone.
 4. Hit `Cmd + R` to build and run.
