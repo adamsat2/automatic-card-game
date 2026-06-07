@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E5A4B81B2FD5ABAC00CC7FDB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E5A4B81A2FD5ABAC00CC7FDB /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		E55ECE3B2FBF1DE6004E2E50 /* card-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "card-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5A4B81A2FD5ABAC00CC7FDB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -29,6 +34,11 @@
 			path = "card-game";
 			sourceTree = "<group>";
 		};
+		E5A4B83B2FD5AF4B00CC7FDB /* images */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = images;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,8 @@
 		E55ECE322FBF1DE6004E2E50 = {
 			isa = PBXGroup;
 			children = (
+				E5A4B81A2FD5ABAC00CC7FDB /* README.md */,
+				E5A4B83B2FD5AF4B00CC7FDB /* images */,
 				E55ECE3D2FBF1DE6004E2E50 /* card-game */,
 				E55ECE3C2FBF1DE6004E2E50 /* Products */,
 			);
@@ -75,6 +87,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				E55ECE3D2FBF1DE6004E2E50 /* card-game */,
+				E5A4B83B2FD5AF4B00CC7FDB /* images */,
 			);
 			name = "card-game";
 			packageProductDependencies = (
@@ -122,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A4B81B2FD5ABAC00CC7FDB /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
