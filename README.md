@@ -36,8 +36,8 @@ The entry point of the application.
 - **Input Validation:** Features a `UIAlertController` for name entry. Validates input to prevent empty strings or the reserved name "The House".
 - **Dynamic UI:** The "Start" button only reveals itself once a valid name and location are secured. The background and text adapt completely to Light and Dark modes.
 
-![Home Screen - Light Mode](images/home-light.png) 
-![Home Screen - Dark Mode](images/home-dark.png)
+<img src="images/home-light.png" width="250">
+<img src="images/home-dark.png" width="250">
 
 ### 2. Game Board (`GameViewController`)
 The core gameplay loop.
@@ -48,8 +48,8 @@ The core gameplay loop.
 - **Animations & Sound:** UIView transitions handle the card flipping animations, paired with synchronized sound effects.
 - **Theming:** Utilizes a static green casino table background, remaining consistent across Light and Dark modes to preserve the gaming aesthetic. After 10 rounds, the timer halts and a Continue button appears.
 
-![Game Screen - Portrait](images/game-portrait.png) 
-![Game Screen - Landscape](images/game-landscape.png)
+<img src="images/game-portrait.png" width="250">
+<img src="images/game-landscape.png" width="250">
 
 ### 3. Score Summary (`ScoreViewController`)
 The final results screen.
@@ -57,5 +57,5 @@ The final results screen.
 - **Stack Management:** Features a "Back to Menu" button utilizing an Unwind Segue. This safely pops the view controllers off the stack to prevent memory leaks and retains the player's previously entered name on the home screen.
 - **Theming:** Fully adapts to Light and Dark system settings.
 
-![Score Screen - Light Mode](images/score-light.png)
-![Score Screen - Dark Mode](images/score-dark.png)
+<img src="images/score-light.png" width="250">
+<img src="images/score-dark.png" width="250">
