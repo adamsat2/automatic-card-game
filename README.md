@@ -49,7 +49,7 @@ The core gameplay loop.
 - **Theming:** Utilizes a static green casino table background, remaining consistent across Light and Dark modes to preserve the gaming aesthetic. After 10 rounds, the timer halts and a Continue button appears.
 
 <img src="images/game-portrait.png" width="250">
-<img src="images/game-landscape.png" width="250">
+<img src="images/game-landscape.png">
 
 ### 3. Score Summary (`ScoreViewController`)
 The final results screen.
